@@ -1,0 +1,16 @@
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.exe
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.deps.json
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.runtimeconfig.json
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.runtimeconfig.dev.json
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.dll
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\ref\Dio_Series.dll
+C:\teste\projetos\cadastros\Dio_Series\bin\Debug\net5.0\Dio_Series.pdb
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.csprojAssemblyReference.cache
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.GeneratedMSBuildEditorConfig.editorconfig
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.AssemblyInfoInputs.cache
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.AssemblyInfo.cs
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.csproj.CoreCompileInputs.cache
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.dll
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\ref\Dio_Series.dll
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.pdb
+C:\teste\projetos\cadastros\Dio_Series\obj\Debug\net5.0\Dio_Series.genruntimeconfig.cache
