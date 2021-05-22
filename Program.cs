@@ -131,11 +131,6 @@ namespace Dio_Series
             Console.WriteLine(serie);
         }
 
-
-
-
-
-
         // Metodo para o salvar as informaçoes das series
         private static void InfoSerie(out int entradaGenero, out string entradaTitulo, out int entradaAno, out string entradaDescricao)
         {
