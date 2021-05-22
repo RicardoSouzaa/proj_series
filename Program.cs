@@ -20,13 +20,13 @@ namespace Dio_Series
                         InserirSerie();
                         break;
                     case "3":
-                        // AtualizarSerie();
+                        AtualizarSerie();
                         break;
                     case "4":
-                        // ExcluirSerie();
+                        ExcluirSerie();
                         break;
                     case "5":
-                        // VisualizarSerie();
+                        VisualizarSerie();
                         break;
                     case "6":
                         Console.Clear();
@@ -41,6 +41,7 @@ namespace Dio_Series
             Console.WriteLine("Obrigado por utilizar o Totalflex" + Environment.NewLine);
         }
 
+        // (01) Metodo para listar as séries
         private static void ListarSerie()
         {
             Console.WriteLine("Listar Séries");
@@ -55,10 +56,13 @@ namespace Dio_Series
 
             foreach (var serie in lista)
             {
-                Console.WriteLine($"#ID {serie.retornaId()}: - {serie.retornaTitulo()}");
+                var excluido = serie.retronaExcluido();
+
+                Console.WriteLine($"#ID {serie.retornaId()}: - {serie.retornaTitulo()} {(excluido ? "** Excluido **" : " ")}");
             }
         }
 
+        // (02) Metodo para Inserir uma série nova
         private static void InserirSerie()
         {
             Console.WriteLine("Inserir nova Série");
@@ -68,17 +72,10 @@ namespace Dio_Series
                 Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
             }
 
-            Console.WriteLine("Digite o gênero entre as opções acima: ");
-            int entradaGenero = int.Parse(Console.ReadLine());
+            int entradaGenero, entradaAno;
+            string entradaTitulo, entradaDescricao;
 
-            Console.WriteLine("Digite o título da série: ");
-            string entradaTitulo = Console.ReadLine();
-
-            Console.WriteLine("Digite o ano de início da série: ");
-            int entradaAno = int.Parse(Console.ReadLine());
-
-            Console.WriteLine("Digite a descrição da série: ");
-            string entradaDescricao = Console.ReadLine();
+            InfoSerie(out entradaGenero, out entradaTitulo, out entradaAno, out entradaDescricao);
 
             Serie novaSerie = new Serie(id: repositorio.ProximoId(),
                                         genero: (Genero)entradaGenero,
@@ -89,6 +86,70 @@ namespace Dio_Series
             repositorio.Insere(novaSerie);
         }
 
+        // (03) metodo para atualizar uma serie
+        private static void AtualizarSerie()
+        {
+            Console.WriteLine("Digite o ID da série");
+            int IndiceSerie = int.Parse(Console.ReadLine());
+
+            foreach (int i in Enum.GetValues(typeof(Genero)))
+            {
+                Console.WriteLine("{0} - {1}", i, Enum.GetName(typeof(Genero), i));
+            }
+
+            int entradaGenero, entradaAno;
+            string entradaTitulo, entradaDescricao;
+
+            InfoSerie(out entradaGenero, out entradaTitulo, out entradaAno, out entradaDescricao);
+
+            Serie atualizaSerie = new Serie(id: IndiceSerie,
+                                        genero: (Genero)entradaGenero,
+                                        titulo: entradaTitulo,
+                                        ano: entradaAno,
+                                        descricao: entradaDescricao);
+
+            repositorio.Atualiza(IndiceSerie, atualizaSerie);
+        }
+
+        // (04) Metodo para excluir uma série 
+        private static void ExcluirSerie()
+        {
+            Console.WriteLine("Digite o ID da série que deseja excluir: ");
+            int indiceSerie = int.Parse(Console.ReadLine());
+
+            repositorio.Exclui(indiceSerie);
+        }
+
+        //(05) Metodo para Visualizar informacoes de uma serie
+        private static void VisualizarSerie()
+        {
+            Console.WriteLine("Digite o ID da série que deseja visualizar: ");
+            int indiceSerie = int.Parse(Console.ReadLine());
+
+            var serie = repositorio.RetornaPorId(indiceSerie);
+
+            Console.WriteLine(serie);
+        }
+
+
+
+
+
+
+        // Metodo para o salvar as informaçoes das series
+        private static void InfoSerie(out int entradaGenero, out string entradaTitulo, out int entradaAno, out string entradaDescricao)
+        {
+            Console.WriteLine("Digite o gênero entre as opções acima: ");
+            entradaGenero = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite o título da série: ");
+            entradaTitulo = Console.ReadLine();
+            Console.WriteLine("Digite o ano de início da série: ");
+            entradaAno = int.Parse(Console.ReadLine());
+            Console.WriteLine("Digite a descrição da série: ");
+            entradaDescricao = Console.ReadLine();
+        }
+
+        // Método para chamar o menu inicial
         private static string OpcaoUsuario()
         {
             Console.WriteLine();

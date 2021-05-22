@@ -23,12 +23,17 @@ namespace Dio_Series
 
         public override string ToString()
         {
-            string retorno = " ";
+            string retorno = "";
             retorno += "Gênero: " + this.Genero + Environment.NewLine; // reconhece a quebra de linha conforme cada sistema operacional Environment.NewLine;
             retorno += "Título: " + this.Titulo + Environment.NewLine; // substitui o /n /r dependendo do sistema.
             retorno += "Descrição: " + this.Descricao + Environment.NewLine;
-            retorno += "Ano de lançamento: " + this.Ano;
+            retorno += "Ano de lançamento: " + this.Ano + Environment.NewLine;
+            retorno += "Excluído: " + this.Excluido;
             return retorno;
+        }
+        public bool retronaExcluido()
+        {
+            return this.Excluido;
         }
 
         public string retornaTitulo()
