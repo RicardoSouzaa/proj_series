@@ -18,4 +18,12 @@ namespace Dio_Series
 
     }
 
+    public enum GeneroDesenho
+    {
+        Anime = 1,
+        Carttoon = 2,
+        Quadrinhos = 3,
+        Games = 4
+    }
+
 }

@@ -5,41 +5,71 @@ namespace Dio_Series
     class Program
     {
         static SerieRepositorio repositorio = new SerieRepositorio(); //instanciando obj repositorio 
+
+        static DesenhoRepositorio desenhoRepo = new DesenhoRepositorio(); // instanciando obj desenhorepositorio
+
         static void Main(string[] args)
         {
 
-            string escolhaUsuario = OpcaoUsuario();
-            while (escolhaUsuario.ToUpper() != "X")
+            // menu de escolha de midia Desenhos ou Series
+            string escolherMidia = EscolhaMidia();
+
+            while (escolherMidia.ToUpper() != "X")
             {
-                switch (escolhaUsuario)
+                switch (escolherMidia)
                 {
                     case "1":
-                        ListarSerie();
+                        // MenuDesenhos();
                         break;
                     case "2":
-                        InserirSerie();
+                        MenuSeries();
                         break;
-                    case "3":
-                        AtualizarSerie();
-                        break;
-                    case "4":
-                        ExcluirSerie();
-                        break;
-                    case "5":
-                        VisualizarSerie();
-                        break;
-                    case "6":
-                        Console.Clear();
-                        break;
-
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
 
-                escolhaUsuario = OpcaoUsuario();
+                escolherMidia = EscolhaMidia();
             }
             Console.WriteLine("Obrigado por utilizar o Totalflex" + Environment.NewLine);
-        }
+
+            // Menu de escolha de series
+            static void MenuSeries()
+            {
+
+                string escolhaUsuario = OpcaoUsuario();
+                while (escolhaUsuario.ToUpper() != "X")
+                {
+                    switch (escolhaUsuario)
+                    {
+                        case "1":
+                            ListarSerie();
+                            break;
+                        case "2":
+                            InserirSerie();
+                            break;
+                        case "3":
+                            AtualizarSerie();
+                            break;
+                        case "4":
+                            ExcluirSerie();
+                            break;
+                        case "5":
+                            VisualizarSerie();
+                            break;
+                        case "6":
+                            Console.Clear();
+                            break;
+
+                        default:
+                            throw new ArgumentOutOfRangeException();
+                    }
+
+                    escolhaUsuario = OpcaoUsuario();
+                }
+                Console.WriteLine("Obrigado por utilizar o Totalflex" + Environment.NewLine);
+            }
+        } // fim do class program (os metodos ficam abaixo)
+
 
         // (01) Metodo para listar as séries
         private static void ListarSerie()
@@ -165,5 +195,21 @@ namespace Dio_Series
             return escolha;
 
         }
+
+        // menu para escolher a mídia
+        private static string EscolhaMidia()
+        {
+            Console.WriteLine();
+            Console.WriteLine("Escolha a mídia que deseja assistir" + Environment.NewLine);
+
+            Console.WriteLine("(1) Desenhos");
+            Console.WriteLine("(2) Séries");
+            Console.WriteLine("(X) Sair");
+
+            string escolha = Console.ReadLine().ToUpper();
+            Console.WriteLine();
+            return escolha;
+        }
     }
+
 }
